@@ -1,21 +1,26 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import axios from 'axios';
 import { Form, Field, withFormik } from "formik";
 import * as Yup from 'yup';
 
 
-function UserForm({errors, touched, values}) {
+function UserForm({errors, touched, values, setUsers, status}) {
+   useEffect( () => {
+    if(status !== undefined) {
+        setUsers(u => [...u, status])
+    }
+   }, [status, setUsers])
     return(
             <Form className='user-form'>
-                <Field type='text' name='name' placeholder='Please enter your name' />
+                <Field className='user-input' type='text' name='name' placeholder='Please enter your name' />
                 {touched.name && errors.name && (
                     <p className="error">{errors.name}</p>
                 )}
-                <Field type='email' name='email' placeholder='Email' />
+                <Field className='user-input' type='email' name='email' placeholder='Email' />
                 {touched.email && errors.email && (
                     <p className="error">{errors.email}</p>
                 )}
-                <Field type='password' name='password' placeholder='Password' />
+                <Field className='user-input' type='password' name='password' placeholder='Password' />
                 {touched.password && errors.password && (
                     <p className="error">{errors.password}</p>
                 )}
@@ -49,11 +54,13 @@ const FormikUserForm = withFormik({
         tos: Yup.boolean().oneOf([true], 'You must Accept Terms of Service')
       }),
 
-    handleSubmit(values) {
+    handleSubmit(values, {setStatus, resetForm}) {
         console.log("form submitted", values);
         axios.post(`https://reqres.in/api/users`, values)
         .then(res => {
             console.log('response', res)
+            setStatus(res.data)
+            resetForm();
         })
         .catch(error => {
             console.log('Error', error)

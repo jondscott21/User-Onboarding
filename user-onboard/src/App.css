@@ -1,3 +1,7 @@
+body {
+  background: #1F1B24;
+}
+
 .App {
   text-align: center;
 }
@@ -6,6 +10,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.user-input {
+  width: 25%;
+  padding: 10px;
+  margin: 20px;
+}
+
+.checkbox-container {
+  color: white;
 }
 
 .error {
