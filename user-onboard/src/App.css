@@ -1,9 +1,22 @@
+
 body {
-  background: #1F1B24;
+  background: #323639;
+}
+h1, h3, p, button {
+  font-family: Roboto, sans-serif;
 }
 
 .App {
   text-align: center;
+}
+
+.form-wrapper {
+  background: #292929;
+  width: 40%;
+  margin: 50px auto;
+  padding: 50px;
+  color: white;
+  box-shadow: 1px 1px 1px black;
 }
 
 .user-form {
@@ -13,16 +26,54 @@ body {
 }
 
 .user-input {
-  width: 25%;
+  width: 50%;
   padding: 10px;
   margin: 20px;
+  font-family: Roboto, sans-serif;
+}
+
+.dropdown-input {
+  width: 53%;
+  padding: 10px;
+  margin: 20px;
+  font-family: Roboto, sans-serif;
 }
 
 .checkbox-container {
+  font-family: Roboto, sans-serif;
+  margin: 20px;
   color: white;
+}
+
+.btn {
+  margin: 20px;
+  padding: 10px;
+  border: none;
+  width: 150px;
+  border-radius: 10px;
 }
 
 .error {
   color: red;
   font-size: 0.8rem;
+}
+
+.user-wrapper {
+  color: white;
+  background: #292929;
+  width: 40%;
+  margin: 50px auto;
+  padding: 50px;
+  color: white;
+  box-shadow: 1px 1px 1px black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.user-card {
+  width: 15%;
+  background: black;
+  margin: 10px 10px;
+  padding: 10px;
+  font-family: Roboto, sans-serif;
 }
